@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Correct SQL syntax
    
-    $sql = "SELECT * FROM `users` where username='$username'";
+    $sql = "SELECT * FROM `users` WHERE username='$username'";
 
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($con, $sql);
     if ($result) {
        $num=mysqli_num_rows($result);
        if($num>0){
@@ -24,12 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $sql = "INSERT INTO `users` (username, password) VALUES ('$username', '$password')";
 
-        $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($con, $sql);
         if ($result) {
         //    echo "Signup successfully";
         $success=1;
         } else {
-            die(mysqli_error($conn));
+            die(mysqli_error($con));
         }
     }
     }
